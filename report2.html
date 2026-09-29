@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>تقرير فحص زيت الزيتون</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./Picture1.png" class="nav-logo">
+            </a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link" href="report1.html">تقرير 1</a></li>
+                <li class="nav-item"><a class="nav-link active" href="report2.html">تقرير 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="records.html">سجل التقارير</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- FORM -->
+    <form id="reportForm" class="report">
+        <!-- HEADER -->
+        <div class="header">
+            <div>
+                <h5>State of Palestine</h5>
+                <p>National Agricultural Research Center</p>
+                <p>Labs Directorate / Tulkarm Lab</p>
+            </div>
+
+            <img src="./Picture1.png" class="logo">
+
+            <div class="rtl">
+                <h5>دولة فلسطين</h5>
+                <p>المركز الوطني الفلسطيني للبحوث الزراعية</p>
+                <p>مديرية المختبرات / مختبر طولكرم</p>
+            </div>
+        </div>
+
+        <h3 class="title">
+            (Olive Oil Testing Report Results)<br>
+            تقرير نتائج الفحوصات الخاصة بزيت الزيتون
+        </h3>
+
+        <!-- INFO TABLE -->
+        <table>
+            <tr>
+                <th>Owner</th>
+                <td><input id="owner" name="owner" required></td>
+                <th class="rtl">اسم صاحب الزيت</th>
+
+                <th>Report No.</th>
+                <td><input id="reportId" name="reportId" readonly></td>
+                <th class="rtl">رقم التقرير</th>
+            </tr>
+
+            <tr>
+                <th>District</th>
+                <td>
+                    <select id="district" name="district" required>
+                        <option value="">-</option>
+                        <option>طولكرم</option>
+                        <option>جنين</option>
+                        <option>نابلس</option>
+                        <option>رام الله</option>
+                        <option>الخليل</option>
+                        <option>طوباس</option>
+                        <option>قلقيلية</option>
+                        <option>سلفيت</option>
+                        <option>اريحا</option>
+                        <option>بيت لحم</option>
+                    </select>
+                </td>
+                <th class="rtl">المحافظة</th>
+
+                <th>Report Date</th>
+                <td><input type="date" id="reportDate" name="reportDate" required></td>
+                <th class="rtl">تاريخ التقرير</th>
+            </tr>
+
+            <tr>
+                <th>Date of receiving samples</th>
+                <td><input type="date" id="reciveDate" name="reciveDate" required></td>
+                <th class="rtl">تاريخ استلام العينة</th>
+
+                <th>Samples Collector</th>
+                <td><input name="collector" id="collector" required></td>
+                <th class="rtl">جامع العينة</th>
+            </tr>
+
+            <tr>
+                <th>Destination</th>
+                <td>
+                    <select id="destination" name="destination" required>
+                        <option value="">-</option>
+                        <option>طولكرم</option>
+                        <option>جنين</option>
+                        <option>نابلس</option>
+                        <option>رام الله</option>
+                        <option>الخليل</option>
+                        <option>طوباس</option>
+                        <option>قلقيلية</option>
+                        <option>سلفيت</option>
+                        <option>اريحا</option>
+                        <option>بيت لحم</option>
+                    </select>
+                </td>
+                <th class="rtl">وجهة النقل</th>
+
+                <th>Sample recipient</th>
+                <td><input name="recipient" id="recipient" required></td>
+                <th class="rtl">مستلم العينة</th>
+            </tr>
+
+            <tr>
+                <th>Quantity</th>
+                <td><input name="quantity" id="quantity" required></td>
+                <th class="rtl">الكمية</th>
+
+                <th>Sample No.</th>
+                <td><input id="sampleNo" name="sampleNo" required></td>
+                <th class="rtl">رقم العينة</th>
+            </tr>
+        </table>
+
+        <!-- RESULTS -->
+        <h4 class="section">Results / النتائج</h4>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Sample No
+                        <br>
+                        رقم العينة
+                    </th>
+                    <th>
+                        Acidity (%)<br>
+                        نسبة الحموضة
+                    </th>
+                    <th>
+                        Peroxide<br>
+                        البيروكسيد
+                        ملمكافئ/كغم زيت
+                        <br>
+                        meq/kg oil
+                    </th>
+                    <th>
+                        Adulteration HNO3
+                        <br>
+                        الخلط
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody id="resultsBody">
+                <tr>
+                    <td><input name="sampleNo[]" value="1" required></td>
+                    <td><input name="acidity[]" required></td>
+                    <td><input name="peroxide[]" required></td>
+                    <td>
+                        <select name="adulteration[]" required>
+                            <option value="">-</option>
+                            <option>-Ve</option>
+                            <option>+Ve</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text-center mt-3">
+            <button type="button" onclick="addResultRow()" class="btn btn-outline-success">
+                إضافة صف جديد
+            </button>
+        </div>
+
+        <!-- FEES / RECEIPT -->
+        <div class="card mt-3 receipt-card">
+            <div class="card-body text-center">
+                <b>Inspection fees / رسوم الفحص</b>
+
+                <div class="receipt-row">
+                    <span>عدد العينات المحتسبة</span>
+                    <span id="feeCount">0</span>
+                </div>
+                <div class="receipt-row">
+                    <span>سعر الفحص للعينة الواحدة</span>
+                    <span>29 ₪</span>
+                </div>
+                <div class="receipt-row receipt-total">
+                    <span>الإجمالي</span>
+                    <span id="feeTotal">0 ₪</span>
+                </div>
+
+                <input type="hidden" name="price" id="price">
+
+                <button type="button" class="btn btn-outline-secondary btn-sm mt-2" onclick="printReceipt()">
+                    طباعة الوصل فقط
+                </button>
+
+                <p class="note mt-2">تُحتسب 29 شيكل عن كل عينة تمت تعبئة نتيجة واحدة على الأقل لها</p>
+            </div>
+        </div>
+
+        <p class="note text-center">
+            Notice: The Ministry of Agriculture is responsible for the samples brought and tested in ministry’s lab<br>
+            ملاحظة: الوزارة غير مسؤولة عن العينات الواردة إلا بعد اعتمادها من المختبر
+        </p>
+
+        <!-- DETAILED RECOMMENDATIONS -->
+        <h4 class="section">(Recommendations) التوصيات</h4>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                From the above result, the samples conform to the Palestinian Standard No. (MF 188) for olive oil
+                in terms of acidity, peroxide and mixing, noting that the upper limit of peroxide is 20 and the acidity
+                is 3.3%.
+            </div>
+        </div>
+
+        <table class="table table-bordered">
+            <tbody id="recommendationBody">
+                <tr>
+                    <td><input name="rec_no[]" value="1" required></td>
+                    <td><input name="rec_en[]" required></td>
+                    <td class="rtl"><input name="rec_ar[]" required></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- زر إضافة صف -->
+        <div class="text-center mt-3">
+            <button type="button" class="btn btn-outline-success" onclick="addRecommendationRow()">
+                إضافة صف جديد
+            </button>
+        </div>
+
+
+        <p class="note text-center">
+            Note that the date of olive oil production is from 15/10/2024 until 15/10/2026<br>
+            <b class="rtl">ملاحظة: علماً أن زيت الزيتون من موسم 2024</b>
+        </p>
+
+        <div class="alert alert-warning text-center">
+            Note: This document does not allow the marketing of oil without a permit from the Directorate of Agriculture
+        </div>
+
+
+        <!-- SIGNATURE -->
+        <div class="signatures">
+            <div>Lab Technician<br>______________</div>
+            <div>Lab Director<br>______________</div>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="actions">
+            <button type="submit" class="btn btn-outline-secondary">حفظ التقرير</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="window.print()">طباعة</button>
+        </div>
+
+        <input type="hidden" name="report_type" value="Report 2">
+
+    </form>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
